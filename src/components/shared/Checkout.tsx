@@ -45,6 +45,7 @@ const Checkout = ({
                 className: "error-toast",
             });
         }
+        // eslint-disable-next-line
     }, []);
 
     const onCheckout = async () => {
