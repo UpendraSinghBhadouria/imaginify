@@ -4,15 +4,7 @@ import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { Button } from "@/components/ui/button"
-import {
-    Form,
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-} from "@/components/ui/form"
+import { Form } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { aspectRatioOptions, creditFee, defaultValues, transformationTypes } from "../constants"
 import { CustomField } from "./CustomField"
@@ -51,7 +43,7 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isTransforming, setIsTransforming] = useState(false);
     const [transformationConfig, setTransformationConfig] = useState(config);
-    const [isPending, startTransition] = useTransition();
+    const [_, startTransition] = useTransition();
     const router = useRouter();
 
     const initialValues = data && action === 'Update' ? {
@@ -137,7 +129,7 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
 
     const onSelectFieldHandler = (value: string, onChangeField: (value: string) => void) => {
         const imageSize = aspectRatioOptions[value as AspectRatioKey]
-
+        // eslint-disable-next-line 
         setImage((prevState: any) => ({
             ...prevState,
             aspectRatio: imageSize.aspectRatio,
@@ -152,6 +144,7 @@ const TransformationForm = ({ action, data = null, userId, type, creditBalance, 
 
     const onInputChangeHandler = (fieldName: string, value: string, type: string, onChangeField: (value: string) => void) => {
         debounce(() => {
+            // eslint-disable-next-line 
             setNewTransformation((prevState: any) => ({
                 ...prevState,
                 [type]: {

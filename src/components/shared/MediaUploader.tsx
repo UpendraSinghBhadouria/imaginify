@@ -8,8 +8,10 @@ import Image from "next/image";
 
 type MediaUploaderProps = {
     onValueChange: (value: string) => void;
+    // eslint-disable-next-line 
     setImage: React.Dispatch<any>;
     publicId: string;
+    // eslint-disable-next-line 
     image: any;
     type: string;
 }
@@ -22,8 +24,9 @@ const MediaUploader = ({
     type
 }: MediaUploaderProps) => {
     const { toast } = useToast()
-
+    // eslint-disable-next-line 
     const onUploadSuccessHandler = (result: any) => {
+        // eslint-disable-next-line 
         setImage((prevState: any) => ({
             ...prevState,
             publicId: result?.info?.public_id,

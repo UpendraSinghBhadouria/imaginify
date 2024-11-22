@@ -14,6 +14,7 @@ import { formSchema } from "./TransformationForm";
 
 type CustomFieldProps = {
     control: Control<z.infer<typeof formSchema>> | undefined;
+    // eslint-disable-next-line 
     render: (props: { field: any }) => React.ReactNode;
     name: keyof z.infer<typeof formSchema>;
     formLabel?: string;
